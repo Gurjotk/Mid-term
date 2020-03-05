@@ -7,6 +7,7 @@ public interface DataServices {
 
 
     @GET("3534")
-    Call<weather> getAllWeather();
 
+
+    Call<weather> getCompleteWeather();
 }

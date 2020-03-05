@@ -8,112 +8,68 @@ import com.google.gson.annotations.SerializedName;
 
 public class ConsolidatedWeather  implements Parcelable {
 
-
-    public int getImage;
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private String id;
     @SerializedName("weather_state_name")
     @Expose
-    private String weatherStateName;
+    private String weather_state_name;
     @SerializedName("weather_state_abbr")
     @Expose
-    private String weatherStateAbbr;
+    private String weather_state_abbr;
     @SerializedName("wind_direction_compass")
     @Expose
-    private String windDirectionCompass;
+    private String wind_direction_compass;
     @SerializedName("created")
     @Expose
     private String created;
     @SerializedName("applicable_date")
     @Expose
-    private String applicableDate;
+    private String applicable_date;
     @SerializedName("min_temp")
     @Expose
-    private Double minTemp;
+    private String min_temp;
     @SerializedName("max_temp")
     @Expose
-    private Double maxTemp;
+    private String max_temp;
     @SerializedName("the_temp")
     @Expose
-    private Double theTemp;
+    private String the_temp;
     @SerializedName("wind_speed")
     @Expose
-    private Double windSpeed;
+    private String wind_speed;
     @SerializedName("wind_direction")
     @Expose
-    private Double windDirection;
+    private String wind_direction;
     @SerializedName("air_pressure")
     @Expose
-    private Double airPressure;
+    private String air_pressure;
     @SerializedName("humidity")
     @Expose
-    private Integer humidity;
+    private String humidity;
     @SerializedName("visibility")
     @Expose
-    private Double visibility;
+    private String visibility;
     @SerializedName("predictability")
     @Expose
-    private Integer predictability;
+    private String predictability;
 
     protected ConsolidatedWeather(Parcel in) {
-
-
-        if (in.readByte() == 0) {
-            id = null;
-        } else {
-            id = in.readInt();
-        }
-        weatherStateName = in.readString();
-        weatherStateAbbr = in.readString();
-        windDirectionCompass = in.readString();
+        id = in.readString();
+        weather_state_name = in.readString();
+        weather_state_abbr = in.readString();
+        wind_direction_compass = in.readString();
         created = in.readString();
-        applicableDate = in.readString();
-        if (in.readByte() == 0) {
-            minTemp = null;
-        } else {
-            minTemp = in.readDouble();
-        }
-        if (in.readByte() == 0) {
-            maxTemp = null;
-        } else {
-            maxTemp = in.readDouble();
-        }
-        if (in.readByte() == 0) {
-            theTemp = null;
-        } else {
-            theTemp = in.readDouble();
-        }
-        if (in.readByte() == 0) {
-            windSpeed = null;
-        } else {
-            windSpeed = in.readDouble();
-        }
-        if (in.readByte() == 0) {
-            windDirection = null;
-        } else {
-            windDirection = in.readDouble();
-        }
-        if (in.readByte() == 0) {
-            airPressure = null;
-        } else {
-            airPressure = in.readDouble();
-        }
-        if (in.readByte() == 0) {
-            humidity = null;
-        } else {
-            humidity = in.readInt();
-        }
-        if (in.readByte() == 0) {
-            visibility = null;
-        } else {
-            visibility = in.readDouble();
-        }
-        if (in.readByte() == 0) {
-            predictability = null;
-        } else {
-            predictability = in.readInt();
-        }
+        applicable_date = in.readString();
+        min_temp = in.readString();
+        max_temp = in.readString();
+        the_temp = in.readString();
+        wind_speed = in.readString();
+        wind_direction = in.readString();
+        air_pressure = in.readString();
+        humidity = in.readString();
+        visibility = in.readString();
+        predictability = in.readString();
     }
 
     public static final Creator<ConsolidatedWeather> CREATOR = new Creator<ConsolidatedWeather>() {
@@ -128,36 +84,36 @@ public class ConsolidatedWeather  implements Parcelable {
         }
     };
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getWeatherStateName() {
-        return weatherStateName;
+    public String getWeather_state_name() {
+        return weather_state_name;
     }
 
-    public void setWeatherStateName(String weatherStateName) {
-        this.weatherStateName = weatherStateName;
+    public void setWeather_state_name(String weather_state_name) {
+        this.weather_state_name = weather_state_name;
     }
 
-    public String getWeatherStateAbbr() {
-        return weatherStateAbbr;
+    public String getWeather_state_abbr() {
+        return weather_state_abbr;
     }
 
-    public void setWeatherStateAbbr(String weatherStateAbbr) {
-        this.weatherStateAbbr = weatherStateAbbr;
+    public void setWeather_state_abbr(String weather_state_abbr) {
+        this.weather_state_abbr = weather_state_abbr;
     }
 
-    public String getWindDirectionCompass() {
-        return windDirectionCompass;
+    public String getWind_direction_compass() {
+        return wind_direction_compass;
     }
 
-    public void setWindDirectionCompass(String windDirectionCompass) {
-        this.windDirectionCompass = windDirectionCompass;
+    public void setWind_direction_compass(String wind_direction_compass) {
+        this.wind_direction_compass = wind_direction_compass;
     }
 
     public String getCreated() {
@@ -168,83 +124,83 @@ public class ConsolidatedWeather  implements Parcelable {
         this.created = created;
     }
 
-    public String getApplicableDate() {
-        return applicableDate;
+    public String getApplicable_date() {
+        return applicable_date;
     }
 
-    public void setApplicableDate(String applicableDate) {
-        this.applicableDate = applicableDate;
+    public void setApplicable_date(String applicable_date) {
+        this.applicable_date = applicable_date;
     }
 
-    public Double getMinTemp() {
-        return minTemp;
+    public String getMin_temp() {
+        return min_temp;
     }
 
-    public void setMinTemp(Double minTemp) {
-        this.minTemp = minTemp;
+    public void setMin_temp(String min_temp) {
+        this.min_temp = min_temp;
     }
 
-    public Double getMaxTemp() {
-        return maxTemp;
+    public String getMax_temp() {
+        return max_temp;
     }
 
-    public void setMaxTemp(Double maxTemp) {
-        this.maxTemp = maxTemp;
+    public void setMax_temp(String max_temp) {
+        this.max_temp = max_temp;
     }
 
-    public Double getTheTemp() {
-        return theTemp;
+    public String getThe_temp() {
+        return the_temp;
     }
 
-    public void setTheTemp(Double theTemp) {
-        this.theTemp = theTemp;
+    public void setThe_temp(String the_temp) {
+        this.the_temp = the_temp;
     }
 
-    public Double getWindSpeed() {
-        return windSpeed;
+    public String getWind_speed() {
+        return wind_speed;
     }
 
-    public void setWindSpeed(Double windSpeed) {
-        this.windSpeed = windSpeed;
+    public void setWind_speed(String wind_speed) {
+        this.wind_speed = wind_speed;
     }
 
-    public Double getWindDirection() {
-        return windDirection;
+    public String getWind_direction() {
+        return wind_direction;
     }
 
-    public void setWindDirection(Double windDirection) {
-        this.windDirection = windDirection;
+    public void setWind_direction(String wind_direction) {
+        this.wind_direction = wind_direction;
     }
 
-    public Double getAirPressure() {
-        return airPressure;
+    public String getAir_pressure() {
+        return air_pressure;
     }
 
-    public void setAirPressure(Double airPressure) {
-        this.airPressure = airPressure;
+    public void setAir_pressure(String air_pressure) {
+        this.air_pressure = air_pressure;
     }
 
-    public Integer getHumidity() {
+    public String getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(Integer humidity) {
+    public void setHumidity(String humidity) {
         this.humidity = humidity;
     }
 
-    public Double getVisibility() {
+    public String getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(Double visibility) {
+    public void setVisibility(String visibility) {
         this.visibility = visibility;
     }
 
-    public Integer getPredictability() {
+    public String getPredictability() {
         return predictability;
     }
 
-    public void setPredictability(Integer predictability) {
+    public void setPredictability(String predictability) {
         this.predictability = predictability;
     }
 
@@ -255,74 +211,20 @@ public class ConsolidatedWeather  implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        if (id == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(id);
-        }
-        dest.writeString(weatherStateName);
-        dest.writeString(weatherStateAbbr);
-        dest.writeString(windDirectionCompass);
+        dest.writeString(id);
+        dest.writeString(weather_state_name);
+        dest.writeString(weather_state_abbr);
+        dest.writeString(wind_direction_compass);
         dest.writeString(created);
-        dest.writeString(applicableDate);
-        if (minTemp == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeDouble(minTemp);
-        }
-        if (maxTemp == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeDouble(maxTemp);
-        }
-        if (theTemp == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeDouble(theTemp);
-        }
-        if (windSpeed == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeDouble(windSpeed);
-        }
-        if (windDirection == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeDouble(windDirection);
-        }
-        if (airPressure == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeDouble(airPressure);
-        }
-        if (humidity == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(humidity);
-        }
-        if (visibility == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeDouble(visibility);
-        }
-        if (predictability == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(predictability);
-        }
-    }
-
-    public int getName() {
-        return 0;
+        dest.writeString(applicable_date);
+        dest.writeString(min_temp);
+        dest.writeString(max_temp);
+        dest.writeString(the_temp);
+        dest.writeString(wind_speed);
+        dest.writeString(wind_direction);
+        dest.writeString(air_pressure);
+        dest.writeString(humidity);
+        dest.writeString(visibility);
+        dest.writeString(predictability);
     }
 }

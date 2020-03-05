@@ -1,7 +1,6 @@
 package com.example.mid_term;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,73 +11,104 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class FirstFragment extends Fragment {
-    ImageView imgv;
-    TextView txt_pname, txt_desc , txt_type, txt_height, txt_weight, txt_ability;
 
-    private NavController navController;
+    TextView txtWeatherCondition, txtPerdictbility, txtHumidity, txtMax, txtTemp, txtMin;
+    ImageView imgCurrent;
+    //    private NavController navController;
+    ArrayList<ConsolidatedWeather> parray;
+    RecycleAdapter adapter;
 
     public FirstFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-
-        navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
-
-        ConsolidatedWeather p = getArguments().getParcelable("data");
-        imgv = view.findViewById(R.id.imageView);
-        txt_pname = view.findViewById(R.id.textView);
-        txt_desc = view.findViewById(R.id.textView2);
-        txt_type = view.findViewById(R.id.textView3);
-        txt_height = view.findViewById(R.id.textView4);
-        txt_weight = view.findViewById(R.id.textView7);
-        txt_ability = view.findViewById(R.id.textView8);
-        genView(p);
-
-
-
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        return inflater.inflate(R.layout.fragment_first, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        txtWeatherCondition = (TextView) getView().findViewById(R.id.txtWeatherCondition);
+        txtPerdictbility = (TextView) getView().findViewById(R.id.txtPerdictbility);
+        txtHumidity = (TextView) getView().findViewById(R.id.txtHumidity);
+        txtMax = (TextView) getView().findViewById(R.id.txtMax);
+        txtTemp = (TextView) getView().findViewById(R.id.txtTemp);
+        txtMin = (TextView) getView().findViewById(R.id.txtMin);
+        imgCurrent = (ImageView) getView().findViewById(R.id.imgCurrent);
+
+        DataServices service = RetrofitClientInstance.getRetrofitInstance().create(DataServices.class);
 
 
+        Call<weather> call = service.getCompleteWeather();
+        call.enqueue(new Callback<weather>() {
+            @Override
+            public void onResponse(Call<weather> call, Response<weather> response) {
+                weather weather = response.body();
+
+                try {
+                    parray = new ArrayList<>(weather.getWeather());
+                    generateView(parray, view);
+
+
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<weather> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void generateView(ArrayList<ConsolidatedWeather> parray, View view) {
+
+        ConsolidatedWeather weather = parray.get(0);
+
+//        parray.get(0).getWeather_state_abbr()
+
+        String uri = "https://www.metaweather.com/static/img/weather/png/64/" + weather.getWeather_state_abbr() + ".png";
+        Picasso.get().load(uri).into(imgCurrent);
+
+        txtWeatherCondition.setText(weather.getWeather_state_name());
+        txtMin.setText(weather.getMin_temp());
+        txtTemp.setText(weather.getThe_temp());
+        txtMax.setText(weather.getMax_temp());
+        txtHumidity.setText(weather.getHumidity()+"%");
+        txtPerdictbility.setText(weather.getPredictability()+"%");
+
+        parray.remove(0);
+
+        adapter = new RecycleAdapter(parray, getActivity().getApplicationContext());
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+
+        RecyclerView recyclerView = view.findViewById(R.id.recycle_view);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(adapter);
+    }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
     }
-
-    public  void genView (ConsolidatedWeather p){
-
-        Picasso.get().load(p.getImage()).into(imgv);
-        txt_pname.setText(p.getName());
-        txt_desc.setText(p.getDescription());
-        txt_type.setText("Type : "+p.getType());
-        txt_ability.setText("Ability : "+p.getAbility());
-        txt_height.setText("Height : "+p.getHeight());
-        txt_weight.setText("Weight : "+p.getWeight());
-
-    }
-
-
-
-
 
 }

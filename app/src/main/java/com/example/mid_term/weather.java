@@ -140,4 +140,7 @@ public class weather {
     public void setTimezone(String timezone) {
         this.timezone = timezone;
     }
+
+    public int getWeather() {return 0;
+    }
 }

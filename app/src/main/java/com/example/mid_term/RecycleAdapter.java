@@ -19,8 +19,9 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
 private ArrayList<ConsolidatedWeather>arrypro;
 private Context context;
 private View.OnClickListener itemlistener;
+    private View.OnClickListener itemListener;
 
-public RecycleAdapter(ArrayList<ConsolidatedWeather> arrypro, Context context){
+    public RecycleAdapter(ArrayList<ConsolidatedWeather> arrypro, Context context){
     this.arrypro = arrypro;
     this.context = context;
 
@@ -38,11 +39,13 @@ public RecycleAdapter(ArrayList<ConsolidatedWeather> arrypro, Context context){
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
 
-        Picasso.get().load(arrypro.get(position).getImage()).into(holder.pkimg);
+        Picasso.get().load(arrypro.get(position).getImage).into(holder.pkimg);
         holder.pkname.setText(arrypro.get(position).getName());
 
     }
-
+    public void setClickListener(View.OnClickListener itemListener){
+        this.itemListener=itemListener;
+    }
 
     @Override
     public int getItemCount() {
@@ -59,8 +62,9 @@ public RecycleAdapter(ArrayList<ConsolidatedWeather> arrypro, Context context){
          super(itemview);
 
          pkimg = itemview.findViewById(R.id.img_w);
-         pkname = itemview.findViewById(R.id.);
+         pkname = itemview.findViewById(R.id.txt_w);
          itemview.setTag(this);
+            itemview.setOnClickListener(itemListener);
         }
 
 

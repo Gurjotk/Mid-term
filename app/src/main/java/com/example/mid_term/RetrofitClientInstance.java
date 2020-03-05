@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
-    private static  final String BASE_URL ="https://next.json-generator.com/api/json/get/";
+    private static  final String BASE_URL ="https://www.metaweather.com/api/location/";
 
     public static Retrofit getRetrofitInstance()
     {

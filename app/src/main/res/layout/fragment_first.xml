@@ -92,10 +92,10 @@
         android:layout_marginBottom="573dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23"
+        app:layout_constraintVertical_bias="0.307"
         tools:src="@tools:sample/backgrounds/scenic" />
 
     <TextView
@@ -114,6 +114,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleitem"
         android:layout_width="362dp"
         android:layout_height="146dp"
         android:orientation="horizontal"

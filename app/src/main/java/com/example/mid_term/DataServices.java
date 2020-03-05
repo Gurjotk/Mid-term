@@ -6,7 +6,7 @@ import retrofit2.http.GET;
 public interface DataServices {
 
 
-    @GET("E14trR2lD")
-    Call<weather> getAllPokemons();
+    @GET("3534")
+    Call<weather> getAllWeather();
 
 }

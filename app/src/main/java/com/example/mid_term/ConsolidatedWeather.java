@@ -1,11 +1,15 @@
 package com.example.mid_term;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ConsolidatedWeather {
+public class ConsolidatedWeather  implements Parcelable {
 
 
+    public int getImage;
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -51,6 +55,78 @@ public class ConsolidatedWeather {
     @SerializedName("predictability")
     @Expose
     private Integer predictability;
+
+    protected ConsolidatedWeather(Parcel in) {
+
+
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        weatherStateName = in.readString();
+        weatherStateAbbr = in.readString();
+        windDirectionCompass = in.readString();
+        created = in.readString();
+        applicableDate = in.readString();
+        if (in.readByte() == 0) {
+            minTemp = null;
+        } else {
+            minTemp = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            maxTemp = null;
+        } else {
+            maxTemp = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            theTemp = null;
+        } else {
+            theTemp = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            windSpeed = null;
+        } else {
+            windSpeed = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            windDirection = null;
+        } else {
+            windDirection = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            airPressure = null;
+        } else {
+            airPressure = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            humidity = null;
+        } else {
+            humidity = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            visibility = null;
+        } else {
+            visibility = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            predictability = null;
+        } else {
+            predictability = in.readInt();
+        }
+    }
+
+    public static final Creator<ConsolidatedWeather> CREATOR = new Creator<ConsolidatedWeather>() {
+        @Override
+        public ConsolidatedWeather createFromParcel(Parcel in) {
+            return new ConsolidatedWeather(in);
+        }
+
+        @Override
+        public ConsolidatedWeather[] newArray(int size) {
+            return new ConsolidatedWeather[size];
+        }
+    };
 
     public Integer getId() {
         return id;
@@ -170,5 +246,83 @@ public class ConsolidatedWeather {
 
     public void setPredictability(Integer predictability) {
         this.predictability = predictability;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(id);
+        }
+        dest.writeString(weatherStateName);
+        dest.writeString(weatherStateAbbr);
+        dest.writeString(windDirectionCompass);
+        dest.writeString(created);
+        dest.writeString(applicableDate);
+        if (minTemp == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(minTemp);
+        }
+        if (maxTemp == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(maxTemp);
+        }
+        if (theTemp == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(theTemp);
+        }
+        if (windSpeed == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(windSpeed);
+        }
+        if (windDirection == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(windDirection);
+        }
+        if (airPressure == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(airPressure);
+        }
+        if (humidity == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(humidity);
+        }
+        if (visibility == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(visibility);
+        }
+        if (predictability == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(predictability);
+        }
+    }
+
+    public int getName() {
+        return 0;
     }
 }

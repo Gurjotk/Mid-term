@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <TextView
+        android:id="@+id/name6"
+        android:layout_width="176dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="194dp"
+        android:layout_marginEnd="127dp"
+        android:layout_marginBottom="483dp"
+        android:text="weather name"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/humidity"
+        android:layout_width="157dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="364dp"
+        android:layout_marginEnd="208dp"
+        android:layout_marginBottom="338dp"
+        android:text="humidity"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/maxtemp"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginStart="291dp"
+        android:layout_marginTop="281dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="411dp"
+        android:text="max temp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="277dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginBottom="413dp"
+        android:text="temp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mintemp"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="271dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="418dp"
+        android:text="min temp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="309dp"
+        android:layout_height="182dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="573dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/predictability"
+        android:layout_width="157dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="438dp"
+        android:layout_marginEnd="193dp"
+        android:layout_marginBottom="264dp"
+        android:text="predictability"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="362dp"
+        android:layout_height="146dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.868" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
